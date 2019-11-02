@@ -27,8 +27,8 @@ public class ScheduledTasks {
     @Scheduled(fixedRate = 1200000)
     public void pingHerokuApps() throws IOException {
         logger.info("Fixed Rate Task :: Execution Time - {}", dateTimeFormatter.format(LocalDateTime.now()));
-        ping("https://pd-social-server.herokuapp.com");
-        ping("https://lit-beach-29911.herokuapp.com");
+        ping("https://damp-coast-42712.herokuapp.com");
+        ping("https://intense-oasis-86040.herokuapp.com");
     }
 
     private void ping(String urlString) throws MalformedURLException {
