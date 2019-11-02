@@ -22,7 +22,7 @@ public class LoginController {
     @Autowired
     private SecurityContextService securityContextService;
 
-    @CrossOrigin(origins = {"http://localhost:4200"})
+    @CrossOrigin(origins = {"http://localhost:4200","https://intense-oasis-86040.herokuapp.com"})
     @RequestMapping(value = {"/api/auth/social"}, method = RequestMethod.POST)
     public AuthResponse loginToSocial(@RequestBody(required = false) AuthParams params) throws AuthenticationException {
 
@@ -48,7 +48,7 @@ public class LoginController {
         return null;
     }
 
-    @CrossOrigin(origins = {"http://localhost:4200"})
+    @CrossOrigin(origins = {"http://localhost:4200","https://intense-oasis-86040.herokuapp.com"})
     @RequestMapping(value = {"/api/auth"}, method = RequestMethod.POST)
     public AuthResponse login(@RequestBody(required = false) AuthParams params) throws AuthenticationException {
 
@@ -62,7 +62,7 @@ public class LoginController {
         }).orElseThrow(RuntimeException::new); // it does not happen.
     }
 
-    @CrossOrigin(origins = {"http://localhost:4200"})
+    @CrossOrigin(origins = {"http://localhost:4200","https://intense-oasis-86040.herokuapp.com"})
     @RequestMapping(value = {"/api/auth/create"}, method = RequestMethod.POST)
     public AuthResponse create(@RequestBody(required = false) SignupForm params) throws AuthenticationException {
 
@@ -87,7 +87,7 @@ public class LoginController {
     }
 
 
-    @CrossOrigin(origins = {"http://localhost:4200"})
+    @CrossOrigin(origins = {"http://localhost:4200","https://intense-oasis-86040.herokuapp.com"})
     @RequestMapping(value = {"/", "/login"}, method = RequestMethod.OPTIONS)
     public ResponseEntity authOption() {
         return ResponseEntity.ok().build();

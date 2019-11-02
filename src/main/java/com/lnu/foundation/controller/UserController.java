@@ -44,7 +44,7 @@ public class UserController {
     @Autowired
     RestTemplate restTemplate;
 
-    @CrossOrigin(origins = {"http://localhost:4200"})
+    @CrossOrigin(origins = {"http://localhost:4200","https://intense-oasis-86040.herokuapp.com"})
     @GetMapping("/me/tests")
     public Collection<TestSession> getTestSessions() {
         Collection<TestSession> sessions;
@@ -57,25 +57,25 @@ public class UserController {
         return sessions;
     }
 
-    @CrossOrigin(origins = {"http://localhost:4200"})
+    @CrossOrigin(origins = {"http://localhost:4200","https://intense-oasis-86040.herokuapp.com"})
     @GetMapping("user/{username}/tests")
     public Collection<TestSession> getPatientTestSessions(@PathVariable String username) {
         return service.getPatientSessions(username);
     }
 
-    @CrossOrigin(origins = {"http://localhost:4200"})
+    @CrossOrigin(origins = {"http://localhost:4200","https://intense-oasis-86040.herokuapp.com"})
     @GetMapping("user/{username}")
     public User getUser(@PathVariable String username) {
         return service.findUserByUsername(username);
     }
 
-    @CrossOrigin(origins = {"http://localhost:4200"})
+    @CrossOrigin(origins = {"http://localhost:4200","https://intense-oasis-86040.herokuapp.com"})
     @GetMapping("/me")
     public User getMe() {
         return securityContextService.currentUser().orElseThrow(RuntimeException::new);
     }
 
-    @CrossOrigin(origins = {"http://localhost:4200"})
+    @CrossOrigin(origins = {"http://localhost:4200","https://intense-oasis-86040.herokuapp.com"})
     @PostMapping("user/me/tests/{testSessionId}/note")
     public Collection<Note> addNote(@PathVariable Long testSessionId, @RequestBody Note note) {
         User user = securityContextService.currentUser().orElseThrow(RuntimeException::new);
@@ -83,7 +83,7 @@ public class UserController {
     }
 
 
-    @CrossOrigin(origins = {"http://localhost:4200"})
+    @CrossOrigin(origins = {"http://localhost:4200","https://intense-oasis-86040.herokuapp.com"})
     @GetMapping("/rssfeed")
     private List<SyndEntry> getRSSFeed() {
         SyndFeed feed = null;
@@ -98,7 +98,7 @@ public class UserController {
         return feed.getEntries();
     }
 
-    @CrossOrigin(origins = {"http://localhost:4200"})
+    @CrossOrigin(origins = {"http://localhost:4200","https://intense-oasis-86040.herokuapp.com"})
     @GetMapping("/youtubeVideos")
     private List<Item> getYoutubeVideos() {
         HttpHeaders headers = new HttpHeaders();
@@ -110,7 +110,7 @@ public class UserController {
         return videos.getItems();
     }
 
-    @CrossOrigin(origins = {"http://localhost:4200"})
+    @CrossOrigin(origins = {"http://localhost:4200","https://intense-oasis-86040.herokuapp.com"})
     @GetMapping("/therapies")
     public Collection<Therapy> getTherapies() {
         Collection<Therapy> therapies = null;
